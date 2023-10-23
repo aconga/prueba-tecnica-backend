@@ -9,6 +9,23 @@ In this system, we need to have at least two types of users:
 
 - Administrators: create/update/delete products and to create/update/delete other administrators
 - Anonymous user: who can only retrieve product information but cannot make changes
+- Whenever an admin user makes a change in a product (for example, if a price is adjusted), we need to notify all other admins about the change, either via email or other mechanism.
+
+## Solución
+Este proyecto Django Rest Framework implementa un sistema de recomendación utilizando Redis como base de datos en memoria y Amazon Simple Email Service (SES) de AWS para enviar correos electrónicos a los clientes. A continuación, encontrarás información sobre cómo configurar, ejecutar y contribuir al proyecto.
+
+## Configurar Variables de Entorno
+
+Crea un archivo .env.dev en la raíz del proyecto con las siguientes variables de entorno, donde se define la variable del ambiente:
+```sh
+DJANGO_SETTINGS_MODULE=myshop.settings.local
+```
+En caso de utilizar el servicio SES de aws se debe agregar las sus credenciales:
+```sh
+AWS_ACCESS_KEY_ID = "aws_access_key"
+AWS_SECRET_ACCESS_KEY = "aws_secret_access_key"
+AWS_DEFAULT_REGION = "us-east-1"
+```
 
 
 ## Development
